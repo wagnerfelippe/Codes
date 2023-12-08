@@ -1,5 +1,89 @@
 #DataScience para Python
 
+#Caso de Uso Crescimento da População Brasileira 1980-2016
+
+#Fazendo o import do pylot
+import matplotlib.pyplot as plt
+
+#Lendo o arquivo 
+dados = open("populacao_brasileira.csv").readlines()
+
+#adicionando variáveis para o título e eixo
+title = "Crescimento da População Brasileira 1980-2016"
+eixox = "Ano"
+eixoy = "População x100.000.000"
+
+#criando os eixos que receberão os valores dos arquivos
+x = []
+y = []
+
+#Agora vamos criar o for. Faço a leitura do tamanho do arquivo e ignorando a primeira linha que é 0, a
+# minha variável linha recebe a variável o índice da variável de dados, com o split ; e vamos
+# converter a string em inteiro e vamos adicionar a com append no indice 0 e 1 e depois imprimir.
+for i in range(len(dados)):
+    if i != 0:
+        linha = dados[i].split(";")
+        x.append(int(linha[0]))
+        y.append(int(linha[1]))
+print(y)
+
+
+#A partir daqui começo a construir o meu gráfico.
+plt.bar(x,y, color='#e4e4e4')
+plt.plot(x,y, color='k', linestyle='--')
+plt.title(title)
+plt.xlabel(eixox)
+plt.ylabel(eixoy)
+plt.bar_label(x,y, fmt="%.01f")
+plt.show()
+
+
+
+#=======================================================================================================================================
+#=======================================================================================================================================
+#====================================================  CRIANDO UM GRÁFICO DE DISPERSÃO - SCATTERPLOT V2  =============================
+
+
+
+
+
+
+#importando a biblioteca para visualização de gráficos
+#import matplotlib.pyplot as plt
+
+#x = [1,3,5,7,9]
+#y = [2,3,7,1,0]
+#z = [20,5,100,33,10]
+
+#criando as variáveis para legendas
+#titulo = "Scatterplot: gráfico de dispersão"
+#eixox = "Eixo X"
+#eixoy = "Eixo Y"
+
+#Criando meu título
+#plt.title(titulo)
+
+#Criando as legendas do eixo
+#plt.xlabel(eixox)
+#plt.ylabel(eixoy)
+
+#Gráfico de dispersão + um gráfico de linha ligando os pontos, mudando a cor dos pontos para vermelho, usando um marcador bolinha e aumentando ele para 200.
+#Além disso, mudamos a linha de sólida para traço e traço.
+#Outro ponto é que mudamos o tamanho da bola de acordo com os valores da lista z. Podemos mudar para o tamanho da lista y ou x, dependendo do que o mesmo deseja.
+#plt.scatter(x,y, label = 'Meus pontos', color = 'r', marker='.', s=z)
+#plt.plot(x,y, color='#009900', linestyle='--')
+#plt.legend()
+
+#mostrando no gráfico como fico os valores no gráfico de linhas
+#plt.show()
+
+#Salvando o arquivo em png. Ou em qualquer formato que queira. Só colocar a extensão dela.
+#Também conseguimos formar a imagem pelo dpi dela. Assim configuramos a qualidade e o tamanho dela.
+#plt.savefig("figura1.png", dpi=300)
+
+
+
+
 
 #=======================================================================================================================================
 #=======================================================================================================================================

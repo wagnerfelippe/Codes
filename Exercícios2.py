@@ -34,7 +34,6 @@ plt.plot(x,y, color='k', linestyle='--')
 plt.title(title)
 plt.xlabel(eixox)
 plt.ylabel(eixoy)
-plt.bar_label(x,y, fmt="%.01f")
 plt.show()
 
 

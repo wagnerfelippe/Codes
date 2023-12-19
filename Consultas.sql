@@ -5753,6 +5753,30 @@ order by senddate desc
 
 
 
+Cálculo para Projeção Mensal
+
+1. Contar dias de uma data específica: COUNT_DISTINCT(DAY(dDate))
+2. Média do valor que você deseja: SUM(Receita) / COUNT_DISTINCT(DAY(dDate))
+3. Pegar o último dia do Mês: 
+                                CASE
+                                	WHEN CAST(Mês as TEXT) = "1" then 31
+                                    WHEN CAST(Mês as TEXT) = "2" then 28
+                                    WHEN CAST(Mês as TEXT) = "3" then 31
+                                    WHEN CAST(Mês as TEXT) = "4" then 30
+                                    WHEN CAST(Mês as TEXT) = "5" then 31
+                                    WHEN CAST(Mês as TEXT) = "6" then 30
+                                    WHEN CAST(Mês as TEXT) = "7" then 31
+                                    WHEN CAST(Mês as TEXT) = "8" then 31
+                                    WHEN CAST(Mês as TEXT) = "9" then 30
+                                    WHEN CAST(Mês as TEXT) = "10" then 31
+                                    WHEN CAST(Mês as TEXT) = "11" then 30
+                                    WHEN CAST(Mês as TEXT) = "12" then 31
+                                    ELSE 32
+                                END
+    
+
+4. Projeção da valor: Média do Valor * LAST(Último dia do mês)
+
 
 
 
